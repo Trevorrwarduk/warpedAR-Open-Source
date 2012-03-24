@@ -1,0 +1,29 @@
+warpedAR
+========
+
+warpedAR is an application which shows how to build an effective Augmented Reality Solution using Appcelerator Titanium.
+
+It is released under the Apache Open Source License, you are free to use and manipulate this code as you require. If you have fixes or suggestions please contact me via trevor@thewarpedcoder.net
+
+The application is described below.
+
+Version 1.0 - IOS ONLY
+______________________
+
+In this version the application checks the sensors on the device and uses google places to show the data in the Augmented Reality space.
+
+It uses a plain black screen for this and does no data update or altering the items (POI's) as you get closer or further away.
+
+The next version will have the camera closely followed by the distance updates. It is not currently in this version as I thought it better to release early for feedback.
+
+The main focus at the moment is to make this compatible with Android, which is not very far off.
+
+An example application is awaiting approval in the app store so may be available NOW.. warpedAR.
+
+
+To use this application you will need to input your own Google Places API key in the googleFeed.js file.
+________________________________________________________________________________________________________
+ 
+
+Please contact me via thewarpedcoder@googlemail.com with any comments suggestions or code fixes.
+________________________________________________________________________________________________
