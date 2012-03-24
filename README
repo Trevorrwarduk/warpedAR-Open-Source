@@ -12,9 +12,9 @@ ______________________
 
 In this version the application checks the sensors on the device and uses google places to show the data in the Augmented Reality space.
 
-It uses a plain black screen for this and does no data update or altering the items (POI's) as you get closer or further away.
+It uses a plain black screen or the camera view if the camera exists for this and does no data update or altering the items (POI's) as you get closer or further away.
 
-The next version will have the camera closely followed by the distance updates. It is not currently in this version as I thought it better to release early for feedback.
+The next version will have the distance updates. It is not currently in this version as I thought it better to release early for feedback.
 
 The main focus at the moment is to make this compatible with Android, which is not very far off.
 

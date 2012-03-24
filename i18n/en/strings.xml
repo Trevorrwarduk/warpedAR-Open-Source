@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<string name="app_name">warpedAR</string>
+	<string name="info_text">This application has been provided to show how Augmented Reality can work on multiple devices. \n\nIt has been developed using the Appcelerator Titanium Mobile Development Framework. No additional modules or libraries were used.</string>
+	<string name="gps_test">GPS</string>
+	<string name="gprs_test">GPRS</string>
+    <string name="compass_test">Compass</string>
+    <string name="camera_test">Camera</string>
+	<string name="gps_purpose">warpedAR Augmented Reality</string>
+	
+	<!-- Button text -->
+    <string name="butt_continue">Continue</string>
+    <string name="butt_close">Close</string>
+	
+	<!-- Activity Indicator Text -->
+    <string name="A0001">Obtaining Your Current Location</string>
+    <string name="A0002">Obtaining The Google Data</string>
+    <string name="A0003">Processing The Google Data</string>
+    <string name="A0004">Building the AR View</string>
+    <string name="A0005">Building the Radar Blips</string>
+    <string name="A0006">Building the Main Display</string>
+	
+	<!-- Error Messages -->
+    <string name="E0001">All sensors have to be activated to use this application</string>
+    <string name="E0002">An error has occurred obtaining your location</string>
+    <string name="E0003">An error has occurred obtaining the Google data</string>
+    <string name="E0004">No data has been found in your location.\n Please try another location</string>
+    <string name="E0005">Compass Heading update failed</string>
+    <string name="E0006">Camera has failed to initialise</string>
+		
+</resources>
