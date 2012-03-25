@@ -53,7 +53,7 @@ function showARDetail(inParam)
         left :    0,
         right :    0,
         bottom :    0,
-        backgroundColor :    "#000000",
+        backgroundColor :    layout.css.ar.detail.bkc,
         opacity :    0.75,
         zIndex :    125
     });

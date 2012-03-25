@@ -168,6 +168,10 @@ var css    = {
             width : '4dp',
             // Blip Color
             color : '#D4D4D4'
+        },
+        // The details view
+        detail : {
+            bkc : '#000000'
         }
     }
 };

@@ -53,4 +53,4 @@
 var ctl    =    require('/control/warpedAR-CTL');
 
 // Now start the app
-ctl.startAppEXP();
+ctl.startApp();

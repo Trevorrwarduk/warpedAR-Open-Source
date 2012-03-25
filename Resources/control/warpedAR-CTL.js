@@ -445,5 +445,5 @@ if(isiOS4Plus()) {
 /*
  * Export the required functions for access
  */
-exports.startAppEXP    =    startApp;
+exports.startApp    =    startApp;
 
