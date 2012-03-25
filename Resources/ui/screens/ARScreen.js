@@ -269,13 +269,10 @@ function buildARData(callBack)
         else {
             tmpDegCal    =    225;
             tmpView    =    poiView4;
-        }
-        var tmpLeft    =    ((googleData[iPos].degree  -  tmpDegCal)  *  (screenWidth  /  90));
-        var tmpTop    =    (screenHeight  /  2)  *  scale;
+        }        
+        var tmpLeft    =    ((googleData[iPos].degree  -  tmpDegCal)  *  (screenWidth  /  90)) - ((100 * scale) / 2);
+        var tmpTop    =    (screenHeight / 2)  *  scale;
 
-        if((tmpLeft  +  (100  *  scale))  >=  screenWidth) {
-            tmpLeft    =    screenWidth  -  (100  *  scale);
-        }
         var poiItem    =    Ti.UI.createImageView({
             height :    100  *  scale,
             width :    100  *  scale,
