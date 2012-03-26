@@ -171,7 +171,12 @@ var css    = {
         },
         // The details view
         detail : {
-            bkc : '#000000'
+            // Background Color
+            bkc : '#000000',
+            // Background Opacity
+            bko : 0.75,
+            // Icon Size
+            ics : 100
         }
     }
 };

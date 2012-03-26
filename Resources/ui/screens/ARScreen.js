@@ -46,6 +46,14 @@ var screenHeight    =    parseInt(persHandler.retPersData({
 
 var rotateFlag    =    true;
 
+/*
+ * showARDetail
+ * ============
+ * 
+ * This function create a view of the POI's data and then displays it over
+ * the AR view. When closed it cleans up the View and variables.
+ * 
+ */
 function showARDetail(inParam)
 {
     var arDetailView    =    Ti.UI.createView({
@@ -142,6 +150,10 @@ function finishedBuild()
  * =============
  *
  * These function rotates the Augmented Reality Display as the device is rotated
+ * 
+ * The right is set as opposed to the left as it rotates the screen correctly. If the
+ * left position of the view is set it rotates the display in the opposite direction.
+ * 
  */
 function removeFlag()
 {
@@ -231,7 +243,14 @@ function addPOIEvent(inParam)
  * buildARData
  * ==========
  *
- * This function builds the radar blips .....
+ * This function builds the AR Data.
+ * 
+ * It takes the passed google data shows the POI's icon and positions it onto the relevant
+ * view in relation to its heading.
+ * 
+ * It also scales the Icon depending on the distance away from the current location.
+ * 
+ * Finally creating the blips for the radar display.
  */
 
 function buildARData(callBack)
@@ -270,12 +289,20 @@ function buildARData(callBack)
             tmpDegCal    =    225;
             tmpView    =    poiView4;
         }        
-        var tmpLeft    =    ((googleData[iPos].degree  -  tmpDegCal)  *  (screenWidth  /  90)) - ((100 * scale) / 2);
+        var tmpLeft    =    ((googleData[iPos].degree  -  tmpDegCal)  *  (screenWidth  /  90)) - ((layout.css.ar.detail.ics * scale) / 2);
         var tmpTop    =    (screenHeight / 2)  *  scale;
 
+        if ((tmpLeft + ((layout.css.ar.detail.ics * scale / 2))) >= screenWidth)
+        {
+            tmpLeft = screenWidth - (layout.css.ar.detail.ics * scale);
+        }
+        if (tmpLeft <= 0)
+        {
+            tmpLeft = 0;
+        }
         var poiItem    =    Ti.UI.createImageView({
-            height :    100  *  scale,
-            width :    100  *  scale,
+            height :    layout.css.ar.detail.ics  *  scale,
+            width :    layout.css.ar.detail.ics  *  scale,
             left :    tmpLeft,
             top :    tmpTop,
             image :    googleData[iPos].icon
@@ -398,6 +425,9 @@ function buildAROverlay()
     /*
      * The radar image
      *
+     * The radar displays blips of the POI's giving an indication of the direction of 
+     * the POI's
+     * 
      * Positioned top right.
      *
      */
@@ -493,6 +523,14 @@ function buildAROverlay()
         buildARData();
     });
 
+    /*
+     * camearView
+     * ==========
+     * 
+     * This section displays the view through the camera, using the overlay created.
+     * 
+     * If there is no camera, it adds the overlay to the base window.
+     */
     if(cameraView) {
         Ti.Media.showCamera({
             success : function(event)
