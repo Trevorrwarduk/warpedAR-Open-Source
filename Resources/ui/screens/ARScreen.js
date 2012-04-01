@@ -201,6 +201,58 @@ function rotateDisplay()
 }
 
 /*
+ * displayOverlay
+ * ==============
+ * 
+ * This function displays the AR view either through the camera or 
+ */
+function displayOverlay()
+{
+    /*
+     * camearView
+     * ==========
+     * 
+     * This section displays the view through the camera, using the overlay created.
+     * 
+     * If there is no camera, it adds the overlay to the base window.
+     */
+    if(cameraView) {
+        Ti.Media.showCamera({
+            success : function(event)
+            {
+            },
+            cancel : function()
+            {
+            },
+            error : function(error)
+            {
+                if(error.code  ==  Ti.Media.NO_CAMERA) {
+                    common.launchEvent({
+                        TYPE :    'ERROR',
+                        MESS :    'E0006'
+                    });
+                }
+                else {
+                    common.launchEvent({
+                        TYPE :    'ERROR',
+                        MESS :    'E0006'
+                    });
+                }
+            },
+            mediaTypes :    [Ti.Media.MEDIA_TYPE_VIDEO, Ti.Media.MEDIA_TYPE_PHOTO],
+            showControls :    false,
+            autohide :    false,
+            autofocus :    "off",
+            animated :    false,
+            overlay :    arBaseView
+        });
+    }
+    else {
+        arWin.add(arBaseView);
+    }    
+}
+
+/*
  * startMovement
  * =============
  *
@@ -214,6 +266,7 @@ function startMovement()
     /*
      * Now set the screen position of blips and POI's
      */
+    displayOverlay();
     rotateFlag    =    false;
     rotateDisplay();
 }
@@ -523,48 +576,6 @@ function buildAROverlay()
         buildARData();
     });
 
-    /*
-     * camearView
-     * ==========
-     * 
-     * This section displays the view through the camera, using the overlay created.
-     * 
-     * If there is no camera, it adds the overlay to the base window.
-     */
-    if(cameraView) {
-        Ti.Media.showCamera({
-            success : function(event)
-            {
-            },
-            cancel : function()
-            {
-            },
-            error : function(error)
-            {
-                if(error.code  ==  Ti.Media.NO_CAMERA) {
-                    common.launchEvent({
-                        TYPE :    'ERROR',
-                        MESS :    'E0006'
-                    });
-                }
-                else {
-                    common.launchEvent({
-                        TYPE :    'ERROR',
-                        MESS :    'E0006'
-                    });
-                }
-            },
-            mediaTypes :    [Ti.Media.MEDIA_TYPE_VIDEO, Ti.Media.MEDIA_TYPE_PHOTO],
-            showControls :    false,
-            autohide :    false,
-            autofocus :    "off",
-            animated :    false,
-            overlay :    arBaseView
-        });
-    }
-    else {
-        arWin.add(arBaseView);
-    }
     return;
 }
 
