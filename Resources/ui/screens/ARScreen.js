@@ -16,7 +16,6 @@
 var layout    =    require('/ui/layout');
 var images    =    require('/ui/images');
 var common    =    require('/tools/common');
-var activity    =    require('/ui/common/activity');
 var persHandler    =    require('/tools/persHandler');
 var augmentedReality    =    require('/tools/augmentedReality');
 var androidPlatform    =    null;
@@ -141,11 +140,6 @@ function showARDetail(inParam)
     arBaseView.add(arDetailView);
 }
 
-function finishedBuild()
-{
-    activity.removeActivityIndicator();
-}
-
 /*
  * rotateDisplay
  * =============
@@ -159,7 +153,6 @@ function finishedBuild()
 function removeFlag()
 {
     rotateFlag    =    false;
-    finishedBuild();
 }
 
 function rotateDisplay()
@@ -217,6 +210,7 @@ function displayOverlay()
      *
      * If there is no camera, it adds the overlay to the base window.
      */
+    if (androidPlatform) { cameraView = false ;}
     if(cameraView) {
         Ti.Media.showCamera({
             success : function(event)
@@ -260,7 +254,6 @@ function displayOverlay()
  * This function starts the movement of the display and places the radar blips
  * and display panels in the right position.
  *
- * When its finished the activity indicator is removed.
  */
 function startMovement()
 {
@@ -309,9 +302,6 @@ function addPOIEvent(inParam)
 
 function buildARData(callBack)
 {
-    activity.activityMessage({
-        MESS :    Ti.Locale.getString('A0005')
-    });
     for(var iPos    =    0; iPos  <  googleData.length; iPos++) {
         // The POI's
         var scale    =    (10  /  googleData[iPos].distance).toFixed(2);
@@ -406,9 +396,6 @@ function buildARData(callBack)
  */
 function buildARDisplay(callBack)
 {
-    activity.activityMessage({
-        MESS :    Ti.Locale.getString('A0006')
-    });
     var poiDisplay    =    Ti.UI.createView({
         top :    0,
         height :    screenHeight,
@@ -616,12 +603,6 @@ function loadARScreen(inParams)
      */
     arWin.open();
 
-    activity.loadActivityIndicator({
-        currWin :    arWin
-    });
-    activity.activityMessage({
-        MESS :    Ti.Locale.getString('A0004')
-    });
     /*
      * Build the data display
      */

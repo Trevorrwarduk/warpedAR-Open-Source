@@ -5,12 +5,30 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.014266 seconds on emulator to get ready
+[DEBUG] waited 0.015057 seconds on emulator to get ready
 [DEBUG] com.thewarpedcoder.warpedAR installed? False
 [INFO] Copying CommonJS modules...
 [INFO] Copying project resources..
-[TRACE] COPYING MODIFIED FILE: /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/Resources/control/warpedAR-CTL.js => /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/bin/assets/Resources/control/warpedAR-CTL.js
-[TRACE] COPYING MODIFIED FILE: /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/Resources/ui/screens/ARScreen.js => /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/bin/assets/Resources/ui/screens/ARScreen.js
+[INFO] Detected change in tiapp.xml, or assets deleted. Forcing full re-build...
+[TRACE] COPYING CREATED FILE: /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/Resources/android/default.png => /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/bin/assets/Resources/default.png
+[TRACE] COPYING CREATED FILE: /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/Resources/android/warpedAR.png => /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/bin/assets/Resources/warpedAR.png
+[TRACE] COPYING CREATED FILE: /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/Resources/app.js => /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/bin/assets/Resources/app.js
+[TRACE] COPYING CREATED FILE: /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/Resources/control/warpedAR-CTL.js => /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/bin/assets/Resources/control/warpedAR-CTL.js
+[TRACE] COPYING CREATED FILE: /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/Resources/images/powered-by-google-on-non-white.png => /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/bin/assets/Resources/images/powered-by-google-on-non-white.png
+[TRACE] COPYING CREATED FILE: /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/Resources/images/powered-by-google-on-non-white@2x.png => /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/bin/assets/Resources/images/powered-by-google-on-non-white@2x.png
+[TRACE] COPYING CREATED FILE: /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/Resources/images/radar.png => /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/bin/assets/Resources/images/radar.png
+[TRACE] COPYING CREATED FILE: /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/Resources/services/googleFeed.js => /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/bin/assets/Resources/services/googleFeed.js
+[TRACE] COPYING CREATED FILE: /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/Resources/services/location.js => /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/bin/assets/Resources/services/location.js
+[TRACE] COPYING CREATED FILE: /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/Resources/tools/augmentedReality.js => /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/bin/assets/Resources/tools/augmentedReality.js
+[TRACE] COPYING CREATED FILE: /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/Resources/tools/common.js => /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/bin/assets/Resources/tools/common.js
+[TRACE] COPYING CREATED FILE: /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/Resources/tools/iosBackgroundService.js => /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/bin/assets/Resources/tools/iosBackgroundService.js
+[TRACE] COPYING CREATED FILE: /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/Resources/tools/persHandler.js => /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/bin/assets/Resources/tools/persHandler.js
+[TRACE] COPYING CREATED FILE: /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/Resources/ui/common/activity.js => /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/bin/assets/Resources/ui/common/activity.js
+[TRACE] COPYING CREATED FILE: /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/Resources/ui/common/titleBar.js => /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/bin/assets/Resources/ui/common/titleBar.js
+[TRACE] COPYING CREATED FILE: /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/Resources/ui/images.js => /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/bin/assets/Resources/ui/images.js
+[TRACE] COPYING CREATED FILE: /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/Resources/ui/layout.js => /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/bin/assets/Resources/ui/layout.js
+[TRACE] COPYING CREATED FILE: /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/Resources/ui/screens/ARScreen.js => /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/bin/assets/Resources/ui/screens/ARScreen.js
+[TRACE] COPYING CREATED FILE: /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/Resources/ui/screens/homeScreen.js => /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/bin/assets/Resources/ui/screens/homeScreen.js
 [TRACE] Generating Java Classes
 [DEBUG] Processing Android resource drawables
 [TRACE] COPYING FILE: /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/Resources/android/images/res-long-land-hdpi/inapp_icon.png => /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/res/drawable-long-land-hdpi/inapp_icon_87eafda265.png
@@ -33,6 +51,7 @@ Logfile initialized
 [TRACE] COPYING FILE: /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/Resources/android/images/res-notlong-port-ldpi/inapp_logo.png => /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/res/drawable-notlong-port-ldpi/inapp_logo_dc9fceed62.png
 [TRACE] COPYING FILE: /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/Resources/android/images/res-notlong-port-mdpi/inapp_icon.png => /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/res/drawable-notlong-port-mdpi/inapp_icon_87eafda265.png
 [TRACE] COPYING FILE: /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/Resources/android/images/res-notlong-port-mdpi/inapp_logo.png => /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/res/drawable-notlong-port-mdpi/inapp_logo_dc9fceed62.png
+[DEBUG] app stylesheet => /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/gen/com/thewarpedcoder/warpedAR/ApplicationStylesheet.java
 [DEBUG] copying app icon: /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/bin/assets/Resources/warpedAR.png
 [DEBUG] generating theme.xml
 [DEBUG] found drawable-long-land-hdpi splash screen at /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/Resources/android/images/res-long-land-hdpi/default.png
@@ -57,11 +76,12 @@ Logfile initialized
 [DEBUG] copying /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/Resources/android/images/res-notlong-port-mdpi/default.png splash screen to /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/res/drawable-notlong-port-mdpi/background.png
 [DEBUG] found splash screen at /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/bin/assets/Resources/default.png
 [TRACE] Writing out AndroidManifest.xml
+[DEBUG] adding /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/gen/com/thewarpedcoder/warpedAR/ApplicationStylesheet.java to javac build list
 [DEBUG] adding /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/gen/com/thewarpedcoder/warpedAR/R.java to javac build list
 [DEBUG] adding /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/gen/com/thewarpedcoder/warpedAR/WarpedarActivity.java to javac build list
 [DEBUG] adding /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/gen/com/thewarpedcoder/warpedAR/WarpedarAppInfo.java to javac build list
 [DEBUG] adding /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/gen/com/thewarpedcoder/warpedAR/WarpedarApplication.java to javac build list
-[DEBUG] Building Java Sources: "/Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/gen/com/thewarpedcoder/warpedAR/R.java" "/Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/gen/com/thewarpedcoder/warpedAR/WarpedarActivity.java" "/Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/gen/com/thewarpedcoder/warpedAR/WarpedarAppInfo.java" "/Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/gen/com/thewarpedcoder/warpedAR/WarpedarApplication.java"
+[DEBUG] Building Java Sources: "/Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/gen/com/thewarpedcoder/warpedAR/ApplicationStylesheet.java" "/Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/gen/com/thewarpedcoder/warpedAR/R.java" "/Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/gen/com/thewarpedcoder/warpedAR/WarpedarActivity.java" "/Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/gen/com/thewarpedcoder/warpedAR/WarpedarAppInfo.java" "/Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/gen/com/thewarpedcoder/warpedAR/WarpedarApplication.java"
 [INFO] Compiling Android Resources... This could take some time
 [DEBUG] Android classes.dex built
 [DEBUG] creating unsigned apk: /Users/thewarpedcoder/Documents/Titanium Studio Workspace/warpedAR/build/android/bin/app-unsigned.apk
@@ -145,6 +165,6 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.014119 seconds on emulator to get ready
+[DEBUG] waited 0.014048 seconds on emulator to get ready
 [INFO] Installing application on device
 [INFO] Application installed. Launch from drawer on Home Screen
