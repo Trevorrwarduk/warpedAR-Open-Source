@@ -163,20 +163,20 @@ var css    = {
         // The radar blip
         blip : {
             // Blip Height
-            height : '4dp',
+            height :    '4dp',
             // Blip Width
-            width : '4dp',
+            width :    '4dp',
             // Blip Color
-            color : '#D4D4D4'
+            color :    '#D4D4D4'
         },
         // The details view
         detail : {
             // Background Color
-            bkc : '#000000',
+            bkc :    '#000000',
             // Background Opacity
-            bko : 0.75,
+            bko :    0.75,
             // Icon Size
-            ics : 100
+            ics :    100
         }
     }
 };

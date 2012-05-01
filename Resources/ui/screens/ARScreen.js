@@ -19,6 +19,7 @@ var common    =    require('/tools/common');
 var activity    =    require('/ui/common/activity');
 var persHandler    =    require('/tools/persHandler');
 var augmentedReality    =    require('/tools/augmentedReality');
+var androidPlatform    =    null;
 
 /*
  * The variables needed to pass views around for changes...
@@ -34,10 +35,10 @@ var poiView2    =    null;
 var poiView3    =    null;
 var poiView4    =    null;
 var screenWidth    =    parseInt(persHandler.retPersData({
-    type :    2
+    type :    'width'
 }), 10);
 var screenHeight    =    parseInt(persHandler.retPersData({
-    type :    3
+    type :    'height'
 }), 10);
 
 /*
@@ -49,10 +50,10 @@ var rotateFlag    =    true;
 /*
  * showARDetail
  * ============
- * 
+ *
  * This function create a view of the POI's data and then displays it over
  * the AR view. When closed it cleans up the View and variables.
- * 
+ *
  */
 function showARDetail(inParam)
 {
@@ -150,10 +151,10 @@ function finishedBuild()
  * =============
  *
  * These function rotates the Augmented Reality Display as the device is rotated
- * 
+ *
  * The right is set as opposed to the left as it rotates the screen correctly. If the
  * left position of the view is set it rotates the display in the opposite direction.
- * 
+ *
  */
 function removeFlag()
 {
@@ -166,7 +167,7 @@ function rotateDisplay()
     if(!rotateFlag) {
         rotateFlag    =    true;
         var currBearing    =    parseInt(persHandler.retPersData({
-            type :    4
+            type :    'bearing'
         }), 10);
         if(currBearing  <=  90) {
             poiView1.right    =    ((currBearing  -  0)  *  (screenWidth  /  90))  +  (screenWidth  *  3);
@@ -203,17 +204,17 @@ function rotateDisplay()
 /*
  * displayOverlay
  * ==============
- * 
- * This function displays the AR view either through the camera or 
+ *
+ * This function displays the AR view either through the camera or
  */
 function displayOverlay()
 {
     /*
      * camearView
      * ==========
-     * 
+     *
      * This section displays the view through the camera, using the overlay created.
-     * 
+     *
      * If there is no camera, it adds the overlay to the base window.
      */
     if(cameraView) {
@@ -249,7 +250,7 @@ function displayOverlay()
     }
     else {
         arWin.add(arBaseView);
-    }    
+    }
 }
 
 /*
@@ -297,12 +298,12 @@ function addPOIEvent(inParam)
  * ==========
  *
  * This function builds the AR Data.
- * 
+ *
  * It takes the passed google data shows the POI's icon and positions it onto the relevant
  * view in relation to its heading.
- * 
+ *
  * It also scales the Icon depending on the distance away from the current location.
- * 
+ *
  * Finally creating the blips for the radar display.
  */
 
@@ -341,17 +342,15 @@ function buildARData(callBack)
         else {
             tmpDegCal    =    225;
             tmpView    =    poiView4;
-        }        
-        var tmpLeft    =    ((googleData[iPos].degree  -  tmpDegCal)  *  (screenWidth  /  90)) - ((layout.css.ar.detail.ics * scale) / 2);
-        var tmpTop    =    (screenHeight / 2)  *  scale;
-
-        if ((tmpLeft + ((layout.css.ar.detail.ics * scale / 2))) >= screenWidth)
-        {
-            tmpLeft = screenWidth - (layout.css.ar.detail.ics * scale);
         }
-        if (tmpLeft <= 0)
-        {
-            tmpLeft = 0;
+        var tmpLeft    =    ((googleData[iPos].degree  -  tmpDegCal)  *  (screenWidth  /  90))  -  ((layout.css.ar.detail.ics  *  scale)  /  2);
+        var tmpTop    =    (screenHeight  /  2)  *  scale;
+
+        if((tmpLeft  +  ((layout.css.ar.detail.ics  *  scale  /  2)))  >=  screenWidth) {
+            tmpLeft    =    screenWidth  -  (layout.css.ar.detail.ics  *  scale);
+        }
+        if(tmpLeft  <=  0) {
+            tmpLeft    =    0;
         }
         var poiItem    =    Ti.UI.createImageView({
             height :    layout.css.ar.detail.ics  *  scale,
@@ -478,9 +477,9 @@ function buildAROverlay()
     /*
      * The radar image
      *
-     * The radar displays blips of the POI's giving an indication of the direction of 
+     * The radar displays blips of the POI's giving an indication of the direction of
      * the POI's
-     * 
+     *
      * Positioned top right.
      *
      */
@@ -546,7 +545,9 @@ function buildAROverlay()
         closeButton.borderColor    =    layout.css.butt.bc;
         closeButton.color    =    layout.css.butt.fc;
         if(cameraView) {
-            Ti.Media.hideCamera();
+            if(!androidPlatform) {
+                Ti.Media.hideCamera();
+            }
         }
         cameraView    =    null;
         /*
@@ -586,6 +587,7 @@ function loadARScreen(inParams)
      */
     googleData    =    inParams.DATA;
     cameraView    =    inParams.SERVICES.camera;
+    androidPlatform    =    inParams.ANDROID;
 
     arWin    =    Ti.UI.createWindow({
         backgroundColor :    layout.css.sbkc.hs,

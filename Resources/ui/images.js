@@ -19,13 +19,13 @@ var file    = {
         height :    '80dp',
         width :    '80dp',
         // The height and width are used to calculate blip positions so here used for calculations
-        hCalc : 80,
-        wCalc : 80
+        hCalc :    80,
+        wCalc :    80
     },
     google : {
-      file : '/images/powered-by-google-on-non-white.png',
-      height : '16dp',
-      width : '104dp'  
+        file :    '/images/powered-by-google-on-non-white.png',
+        height :    '16dp',
+        width :    '104dp'
     }
 };
 

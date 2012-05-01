@@ -36,7 +36,7 @@ function calculateBearing(point1, point2)
     return brng;
 }
 
-exports.calculateDistance = calculateDistance;
-exports.calculateBearing = calculateBearing;
-exports.toDegree = toDegree;
-exports.toRadius = toRadius;
+exports.calculateDistance    =    calculateDistance;
+exports.calculateBearing    =    calculateBearing;
+exports.toDegree    =    toDegree;
+exports.toRadius    =    toRadius;

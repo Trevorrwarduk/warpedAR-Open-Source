@@ -15,10 +15,10 @@ var persHandler    =    require('/tools/persHandler');
 function retrieveGoogleFeed()
 {
     var longitude    =    persHandler.retPersData({
-        type :    0
+        type :    'lon'
     });
     var latitude    =    persHandler.retPersData({
-        type :    1
+        type :    'lat'
     });
     var apikey    =    'YOUR GOOGLE PLACES API KEY GOES HERE';
 

@@ -6,7 +6,13 @@
  *
  */
 
-var persNames    =    Array('longitude', 'latitude', 'screenWidth', 'screenHeight', 'bearing');
+var persNames    = {
+    lon :    'longitude',
+    lat :    'latitude',
+    width :    'screenWidth',
+    height :    'screenHeight',
+    bearing :    'bearing'
+};
 /*
  * putPersData
  * ============
@@ -20,7 +26,7 @@ function putPersData(inParam)
 {
     Ti.App.Properties.setString(persNames[inParam.type], inParam.data);
 
-    return;
+    return null;
 }
 
 /*

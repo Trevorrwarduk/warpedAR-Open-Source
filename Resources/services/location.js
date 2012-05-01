@@ -15,12 +15,20 @@ var persHandler    =    require('/tools/persHandler');
 /*
  * The module variables
  */
-Ti.Geolocation.preferredProvider    =    "gps";
-Ti.Geolocation.accuracy    =    Ti.Geolocation.ACCURACY_BEST;
-Ti.Geolocation.purpose    =    Ti.Locale.getString('gps_purpose');
+
 Ti.Geolocation.headingFilter    =    1;
 Ti.Geolocation.showCalibration    =    false;
-Ti.Geolocation.distanceFilter    =    10;
+
+if(Ti.Platform.osname  ==  'android') {
+    Ti.Geolocation.Android.accuracy    =    Ti.Geolocation.ACCURACY_HIGH;
+    Ti.Geolocation.accuracy    =    Ti.Geolocation.ACCURACY_HIGH;
+}
+else {
+    Ti.Geolocation.distanceFilter    =    10;
+    Ti.Geolocation.preferredProvider    =    "gps";
+    Ti.Geolocation.accuracy    =    Ti.Geolocation.ACCURACY_NEAREST_TEN_METERS;
+    Ti.Geolocation.purpose    =    Ti.Locale.getString('gps_purpose');
+}
 
 /*
  * The module Flags
@@ -39,7 +47,7 @@ var compassEventSet    =    false;
 function retrieveCurrentPosition()
 {
     try {
-        var getLocation    =    Ti.Geolocation.getCurrentPosition(function(e)
+        Ti.Geolocation.getCurrentPosition(function(e)
         {
             if(!e.success  ||  e.error) {
                 common.launchEvent({
@@ -48,13 +56,17 @@ function retrieveCurrentPosition()
                 });
             }
             if(e.success) {
+
+                var lon    =    e.coords.longitude;
+                var lat    =    e.coords.latitude;
+
                 persHandler.putPersData({
-                    type :    0,
-                    data :    e.coords.longitude
+                    type :    'lon',
+                    data :    lon
                 });
                 persHandler.putPersData({
-                    type :    1,
-                    data :    e.coords.latitude
+                    type :    'lat',
+                    data :    lat
                 });
                 common.launchEvent({
                     TYPE :    'nextLocationCheck'
@@ -62,7 +74,6 @@ function retrieveCurrentPosition()
             }
         });
     }
-
     catch(err) {
         common.launchEvent({
             TYPE :    'ERROR',
@@ -82,7 +93,7 @@ function headingCallback(e)
     }
     else {
         persHandler.putPersData({
-            type :    4,
+            type :    'bearing',
             data :    e.heading.magneticHeading
         });
         common.launchEvent({
@@ -127,7 +138,7 @@ function retrieveCurrentDirection()
             });
         }
         persHandler.putPersData({
-            type :    4,
+            type :    'bearing',
             data :    e.heading.magneticHeading
         });
     });

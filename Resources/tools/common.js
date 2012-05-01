@@ -35,7 +35,7 @@ function checkNetworkServices()
  */
 function checkCameraExists()
 {
-    return (Ti.Media.isCameraSupported) ? true : false;
+    return (Ti.Media.isCameraSupported)    ?    true    :    false;
 }
 
 function launchEvent(inParam)
@@ -49,6 +49,7 @@ function launchEvent(inParam)
     }
     Ti.App.fireEvent('GLOBALLISTENER', evtParams);
 }
+
 /*
  * Export the required functions for access
  */

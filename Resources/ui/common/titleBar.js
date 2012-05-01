@@ -48,7 +48,7 @@ function titleBarView()
         bottom :    0,
         height :    2,
         right :    6,
-        backgroundColor : layout.css.tb.line
+        backgroundColor :    layout.css.tb.line
     });
     /*
      * Add the view components

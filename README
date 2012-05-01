@@ -7,8 +7,8 @@ It is released under the Apache Open Source License, you are free to use and man
 
 The application is described below.
 
-Version 1.0 - IOS ONLY
-______________________
+Version 1.0
+___________
 
 In this version the application checks the sensors on the device and uses google places to show the data in the Augmented Reality space.
 
@@ -16,9 +16,7 @@ It uses a plain black screen or the camera view if the camera exists for this an
 
 The next version will have the distance updates. It is not currently in this version as I thought it better to release early for feedback.
 
-The main focus at the moment is to make this compatible with Android, which is not very far off.
-
-An example application is awaiting approval in the app store so may be available NOW.. warpedAR.
+An example application is available in the app store. warpedAR.
 
 
 To use this application you will need to input your own Google Places API key in the googleFeed.js file.

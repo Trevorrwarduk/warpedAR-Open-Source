@@ -25,12 +25,15 @@ var augmentedReality    =    require('/tools/augmentedReality');
 
 Titanium.UI.setBackgroundColor(layout.css.sbkc.ab);
 
+// Need to have android platform specific code.
+var androidPlatform    =    (Ti.Platform.osname  ==  'android')    ?    true    :    false;
+
 // Local variable to store services accessibility
 var services    = {
     gpsON :    false,
     gprsON :    false,
     compON :    false,
-    camera : false
+    camera :    false
 };
 
 // Local variable to store the windows
@@ -78,15 +81,15 @@ function loadARScreen()
     // Kick off the Compass ....
     locations.retrieveCurrentDirection();
 
+    activity.removeActivityIndicator();
+
     var ars    =    require('/ui/screens/ARScreen');
 
     var arWin    =    new ars.loadARScreen({
         DATA :    googleData,
-        SERVICES :    services
+        SERVICES :    services,
+        ANDROID :    androidPlatform
     });
-    //
-    //    arWin.open();
-
     homeWin.close();
     homeWin    =    null;
 
@@ -140,10 +143,10 @@ function processGoogleData(inParam)
         for(var i    =    0; i  <  inParam.DATA.results.length; i++) {
             var currLocation    = {
                 lat :    persHandler.retPersData({
-                    type :    1
+                    type :    'lat'
                 }),
                 lng :    persHandler.retPersData({
-                    type :    0
+                    type :    'lon'
                 })
             };
             var dataLocation    = {
@@ -211,22 +214,10 @@ function retrieveGoogleFeed(inParam)
 function nextLocationCheck(inParam)
 {
     if(locationCount  <  2) {
-        locations.retrieveCurrentPosition();
         locationCount++;
+        locations.retrieveCurrentPosition();
     }
     else {
-        var loc    =    persHandler.retPersData({
-            type :    0
-        });
-        var lat    =    persHandler.retPersData({
-            type :    1
-        });
-
-        var mess    =    'Your current Locations is '  +  loc  +  ' ... '  +  lat;
-
-        activity.activityMessage({
-            MESS :    mess
-        });
         locationCount    =    0;
 
         retrieveGoogleFeed();
@@ -257,7 +248,7 @@ function checkServices(eData)
     services.gprsON    =    common.checkNetworkServices();
     services.compON    =    common.checkCompassServices();
     services.camera    =    common.checkCameraExists();
-    
+
     if(eData.FUNC) {
         eData.FUNC();
     }
@@ -287,10 +278,11 @@ function handleError(inParam)
 function resetVars()
 {
     // Enables all variables to be reset after close of AR screen or app background process
-    Ti.Media.hideCamera();
-    
-    if (arWin)
-    {
+    if(!androidPlatform) {
+        Ti.Media.hideCamera();
+    }
+
+    if(arWin) {
         arWin.close();
     }
     locationCount    =    0;
@@ -299,7 +291,7 @@ function resetVars()
         gpsON :    false,
         gprsON :    false,
         compON :    false,
-        camera : false
+        camera :    false
     };
     homeWin    =    null;
     arWin    =    null;
@@ -319,11 +311,11 @@ function startApp()
 
     // Get the screen sizes and store in persistent data..
     persHandler.putPersData({
-        type :    2,
+        type :    'width',
         data :    Ti.Platform.displayCaps.platformWidth
     });
     persHandler.putPersData({
-        type :    3,
+        type :    'height',
         data :    Ti.Platform.displayCaps.platformHeight
     });
     // Check the services are enabled. before loading home screen
@@ -390,16 +382,16 @@ Ti.App.addEventListener('GLOBALLISTENER', function(inParam)
 
 /*
 * Set the IOS background Process
-* 
+*
 * Thanks to Kosso for the code. I managed to find it in a Q & A post.
-* 
+*
 * Yes it worked first time.
-* 
+*
 * When the application goes into background, it closes the activity indicator and removes
 * any no longer required event listeners.
-* 
+*
 * When the application resumes it acts as though it is the first time.
-* 
+*
 */
 // test for iOS 4+
 function isiOS4Plus()

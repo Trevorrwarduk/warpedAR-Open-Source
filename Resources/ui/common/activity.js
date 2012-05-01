@@ -63,45 +63,44 @@ function buildDot(inLeft)
 
 function animateDots()
 {
-    if (!timer)
-    {
-    timer    =    setInterval(function()
-    {
-        switch (dotLoaded)
+    if(!timer) {
+        timer    =    setInterval(function()
         {
-            case 1:
-                dot1.backgroundColor    =    layout.css.activity.dot.bkc;
-                dot2.backgroundColor    =    layout.css.activity.dot.fbkc;
-                dotLoaded    =    2;
-                break;
-            case 2:
-                dot2.backgroundColor    =    layout.css.activity.dot.bkc;
-                dot3.backgroundColor    =    layout.css.activity.dot.fbkc;
-                dotLoaded    =    3;
-                break;
-            case 3:
-                dot3.backgroundColor    =    layout.css.activity.dot.bkc;
-                dot4.backgroundColor    =    layout.css.activity.dot.fbkc;
-                dotLoaded    =    4;
-                break;
-            case 4:
-                dot4.backgroundColor    =    layout.css.activity.dot.bkc;
-                dot5.backgroundColor    =    layout.css.activity.dot.fbkc;
-                dotLoaded    =    5;
-                break;
-            case 5:
-                dot5.backgroundColor    =    layout.css.activity.dot.bkc;
-                dot6.backgroundColor    =    layout.css.activity.dot.fbkc;
-                dotLoaded    =    6;
-                break;
-            case 6:
-                dot6.backgroundColor    =    layout.css.activity.dot.bkc;
-                dot1.backgroundColor    =    layout.css.activity.dot.fbkc;
-                dotLoaded    =    1;
-                break;
-        }
-    }, 500);
-   }
+            switch (dotLoaded)
+            {
+                case 1:
+                    dot1.backgroundColor    =    layout.css.activity.dot.bkc;
+                    dot2.backgroundColor    =    layout.css.activity.dot.fbkc;
+                    dotLoaded    =    2;
+                    break;
+                case 2:
+                    dot2.backgroundColor    =    layout.css.activity.dot.bkc;
+                    dot3.backgroundColor    =    layout.css.activity.dot.fbkc;
+                    dotLoaded    =    3;
+                    break;
+                case 3:
+                    dot3.backgroundColor    =    layout.css.activity.dot.bkc;
+                    dot4.backgroundColor    =    layout.css.activity.dot.fbkc;
+                    dotLoaded    =    4;
+                    break;
+                case 4:
+                    dot4.backgroundColor    =    layout.css.activity.dot.bkc;
+                    dot5.backgroundColor    =    layout.css.activity.dot.fbkc;
+                    dotLoaded    =    5;
+                    break;
+                case 5:
+                    dot5.backgroundColor    =    layout.css.activity.dot.bkc;
+                    dot6.backgroundColor    =    layout.css.activity.dot.fbkc;
+                    dotLoaded    =    6;
+                    break;
+                case 6:
+                    dot6.backgroundColor    =    layout.css.activity.dot.bkc;
+                    dot1.backgroundColor    =    layout.css.activity.dot.fbkc;
+                    dotLoaded    =    1;
+                    break;
+            }
+        }, 500);
+    }
 }
 
 /*
@@ -111,7 +110,7 @@ function animateDots()
 function buildDots()
 {
     var screenWidth    =    persHandler.retPersData({
-        type :    2
+        type :    'width'
     });
 
     dotView    =    Ti.UI.createView({
@@ -183,8 +182,8 @@ function removeActivityIndicator(inParam)
 {
     if(maskView) {
         clearInterval(timer);
-        timer = null;
-        
+        timer    =    null;
+
         dotView.remove(dot1);
         dotView.remove(dot2);
         dotView.remove(dot3);
